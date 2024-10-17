@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-5">Привет!</h1>
+
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <div class="row">
+                                
+                                {% for image in images %}
+
+                                <div class="col-md-4 mb-4">
+                                    <li class="card h-100">
+                                        <img src="{{ image.image }}" class="card-img-top" alt="Изображение" width="350">
+                                        <div class="card-body">
+                                            <p class="card-text">{{ image.file_name }}</p>
+                                            <small class="text-muted">{{ image.created_at }}</small>
+                                        </div>
+                                    </li>
+                                </div>
+                                
+                                {% empty %}
+                                    <div class="col-12 text-center">
+                                        <h5 class="text-muted">Еще картинок нет</h5>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXlL7XjcB1i4ojrG6tDk5TZrF3JJ7jB1cwRl5mT7EqpJMFWR6j8gpQq2L5T6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGhmeDquM7rH/n6BAMFLFzY9PZfj41zEjxMEYVs3r5i/C7nx0U5IqQDyjU6" crossorigin="anonymous"></script>
+</body>
+</html>
